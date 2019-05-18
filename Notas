@@ -2,3 +2,14 @@ FORMATO BUA
 https://buaform.azurewebsites.net/perito
 
 https://nodebua.azurewebsites.net:8080/api/avaluo
+
+{
+    "Entidad_avaluadora": "AKI",
+    "Direccion": "ESTOY",
+    "Telefono": 123,
+    "Banco": "banco",
+    "Id_banco": 123,
+    "Departamento": "depto",
+    "Ciudad": "ciudad",
+    "Id_perito": 123
+}
