@@ -201,28 +201,20 @@ int ejercicio11()
 {
 	cout << "Ejercicio #11";
 	cout << "\n";
-	char nom[10];
-	char apell[10];
 	int a;// fecha de nacimiento
 	int b;//año actual 
- cout << "escriba sus nombre :"<<endl;
- cin>>nom;
- cout << "escriba sus apellidos :"<<endl;
- cin>>apell;
- cout << "escriba su fecha de nacimiento : "<<endl;
- cin>>a;
- b=2001;
- if(a<b)
- if(b<a)
- {
- cout << "la persona es mayor de edad \t-:"<<endl;	
- }
- else
-{
-
- cout << "la persona es menor de edad \t-:"<<endl;
-}
-else
+	cout << "Digite su anio de nacimiento :";
+	cin >> a;
+	b = 2019;
+	b = b - a;
+	if (b >=18)
+		{
+			cout << "Persona es mayor de edad";
+		}
+	else
+		{
+			cout << "Persona es menor de edad";
+		}	
 	return 0;
 }
 int ejercicio12()
