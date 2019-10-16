@@ -3,9 +3,10 @@
 //#include <string>
 //#include <conio.h>
 
-#include "pch.h"
+//#include "pch.h"
 #include <iostream>
 #include <ctime>
+#include <cmath>
 using namespace std;
 int opcion;
 double num;
@@ -20,9 +21,9 @@ int ejercicio1()
 	if (!cin) {
 		cout << "Numero no valido";
 		cin.clear();
-		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	//	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-	else {		
+	else {
 		if (num == 0)
 			cout << num << ": es igual a cero";
 		else
@@ -35,7 +36,7 @@ int ejercicio1()
 	return 0;
 }
 int ejercicio2()
-{	
+{
 	cout << "Ejercicio #2";
 	cout << "\n";
 	cout << "Ingrese un numero: ";
@@ -68,9 +69,9 @@ int ejercicio4()
 }
 int ejercicio5()
 {
-	double promedio=0;
-	double promacum=0;
-	double nota=0;
+	double promedio = 0;
+	double promacum = 0;
+	double nota = 0;
 	int i = 0;
 	cout << "Ejercicio #5";
 	cout << "\n";
@@ -93,7 +94,7 @@ int ejercicio5()
 }
 int ejercicio6()
 {
-	double multiplo=0;
+	double multiplo = 0;
 	cout << "Ejercicio #6";
 	cout << "\n";
 	cout << "Multiplos de 2 entre 1 y 100:";
@@ -122,8 +123,8 @@ int ejercicio6()
 }
 int ejercicio7()
 {
-	double numero1=0;
-	double numero2=0;
+	double numero1 = 0;
+	double numero2 = 0;
 	cout << "Ejercicio #7";
 	cout << "\n";
 	cout << "ingrese un numero:";
@@ -132,7 +133,7 @@ int ejercicio7()
 	cout << "ingrese un numero:";
 	cin >> numero2;
 	if (numero1 > numero2)
-		cout << numero1 << " es  que " << numero2;
+		cout << numero1 << " es  mayor que " << numero2;
 	else
 		if (numero2 > numero1)
 			cout << numero2 << " es mayor que " << numero1;
@@ -166,11 +167,13 @@ int ejercicio8()
 }
 int ejercicio9()
 {
+	int totalsuma = 0;
 	cout << "Ejercicio #9";
 	cout << "\n";
 	for (int i = 20; i <= 50; i++)
 	{
 		cout << i << endl;
+		totalsuma = i + totalsuma;
 	}
 	cout << "\n";
 	return 0;
@@ -179,8 +182,8 @@ int ejercicio10()
 {
 	cout << "Ejercicio #10";
 	cout << "\n";
-	double numero=0;
-	double acumulado=0;
+	double numero = 0;
+	double acumulado = 0;
 	int i = 0;
 	do
 	{
@@ -193,119 +196,250 @@ int ejercicio10()
 	cout << "\n";
 	return 0;
 }
+
 int ejercicio11()
 {
 	cout << "Ejercicio #11";
 	cout << "\n";
-	int anion = 0;
-	int mesn = 0;
-	int dian = 0;
-	int respFech = 0;
-	int respMes = 0;
-	int respdia = 0;
-	cout << "Ingrese su anio de nacimiento en formato AAAA:";
-	cin >> anion;
-	cout << "Ingrese su mes de nacimiento en formato MM:";
-	cin >> mesn;
-	cout << "Ingrese su dia de nacimiento en formato DD:";
-	cin >> dian;	
-	//calcular fecha actual
-	int fechahoy = 0;
-	struct tm newtime;
-	time_t now = time(0);
-	localtime_s(&newtime, &now);
-	int mes = 1 + newtime.tm_mon;
-	int anio = 1900 + newtime.tm_year;
-	int dia = newtime.tm_mday;	
-	string fechaactual ="";
-	fechaactual = to_string(anio)+ to_string(mes)+ to_string(dia);	
-	fechahoy = std::stoi(fechaactual);
-	cout << "\n fecha actual: " << fechahoy;		
-	//calcular edad	
-	if (mes < mesn)
-	{   //En caso de ser menor el mes actual que el nacimiento
-		//dia = dia + 30; // Se le suma los 12 meses (1 año) al mes actual
-		mes = mes + 12; // Se le suma los 12 meses (1 año) al mes actual
-		anio = anio - 1; // Se le resta 1 año ( 12 meses) al año actual
-		respMes = mes - mes; //Se le resta año nacimiento al actual
-		respdia = (dia - dia); //Se le resta año nacimiento al actual
-	}
-	else { //En caso de ser mayor el mes actual que el nacimiento
-		respMes = mes - mesn; //Se le resta año nacimiento al actual
-		respdia = (dia - dian)*-1;
-	}	
-	int edad = anio - anion;
-	if (edad >= 18) {
-		if (dia > dian) {
-		cout << "\n usted es mayor de edad:" << endl;
-		cout << edad << " anios, " << respMes  << " meses " <<endl;
-		cout << " y " << respdia << " dias";		
-		}
-		else {
-			edad = edad - 1;
-			cout << "\n  usted es menor de edad: " << endl;
-			cout << edad << " anios y 11 meses " << endl;			
-		}
-	}
-	else {		
-		cout << "\n  usted es menor de edad: " << endl;
-		cout << edad << " anios, " << respMes << " meses " << endl;
-		cout << " y " << respdia << " dias";
-	}
-	cout << "\n";
+	char nom[10];
+	char apell[10];
+	int a;// fecha de nacimiento
+	int b;//año actual 
+ cout << "escriba sus nombre :"<<endl;
+ cin>>nom;
+ cout << "escriba sus apellidos :"<<endl;
+ cin>>apell;
+ cout << "escriba su fecha de nacimiento : "<<endl;
+ cin>>a;
+ b=2001;
+ if(a<b)
+ if(b<a)
+ {
+ cout << "la persona es mayor de edad \t-:"<<endl;	
+ }
+ else
+{
+
+ cout << "la persona es menor de edad \t-:"<<endl;
+}
+else
 	return 0;
 }
 int ejercicio12()
 {
 	cout << "Ejercicio #12";
 	cout << "\n";
+	
+		double numero1 = 0;
+		double numero2 = 0;
+		double numero3 = 0;
+		cout << "\n";
+		cout << "ingrese un numero:";
+		cin >> numero1;
+		cout << "\n";
+		cout << "ingrese un numero:";
+		cin >> numero2;
+		cout << "ingrese un numero:";
+		cin >> numero3;
+		if (numero1 > numero2) {
+			if (numero1 > numero3) {
+				cout << numero1;
+				if (numero2 > numero3) {
+					cout << numero2;
+					cout << numero3;
+				}
+				else {
+					cout << numero3;
+					cout << numero2;
+				}
+			}
+			else {
+				cout << numero3;
+				cout << numero1;
+				cout << numero2;
+			}
+		}
+		else{
+			if (numero2> numero3) {
+				if (numero1 > numero3) {
+					cout << numero2;
+					cout << numero1;
+					cout << numero3;
+				}
+				else {
+					cout << numero2;
+					cout << numero3;
+					cout << numero1;
+				}
+
+
+			}
+			
+			else {
+			        cout << numero3;
+					cout << numero2;
+					cout << numero1;
+
+			}
+		   }
+		cout << "\n";
+
+	
 	return 0;
 }
 int ejercicio13()
 {
 	cout << "Ejercicio #13";
+
+	double numero1 = 0;
+	double numero2 = 0;
+	double numero3 = 0;
 	cout << "\n";
+	cout << "ingrese un numero:";
+	cin >> numero1;
+	cout << "\n";
+	cout << "ingrese un numero:";
+	cin >> numero2;
+	cout << "ingrese un numero:";
+	cin >> numero3;
+	if (numero1 > numero2) {
+		if (numero1 > numero3) {
+		
+			if (numero2 > numero3) {
+				cout << numero3;
+				cout << numero2;
+				cout << numero1;
+			}
+			else {
+				cout << numero2;
+				cout << numero3;
+				cout << numero1;
+			}
+		}
+		else {
+			cout << numero3;
+			cout << numero1;
+			cout << numero2;
+		}
+	}
+	else {
+		if (numero2 > numero3) {
+			if (numero1> numero3) {
+				cout << numero3;
+				cout << numero1;
+				cout << numero2;
+			}
+			else {
+				cout << numero1;
+				cout << numero3;
+				cout << numero2;
+			}
+
+		}
+
+		else {
+			cout << numero1;
+			cout << numero2;
+			cout << numero3;
+
+		}
+	}
+	cout << "\n";
+
 	return 0;
 }
 int ejercicio14()
 {
 	cout << "Ejercicio #14";
 	cout << "\n";
+	const float PI = 3.14159265;
+	    float radio, altura, area, volumen;
+	  cout<<("digite el radio del cilindro:");
+	  cin >> radio;
+	 cout<<("digite la altura del cilindro:");
+	 cin >> altura ;
+	    area = 2.0 * PI * radio * (radio + altura);
+	    volumen = PI * radio * radio * altura;
+		cout << "area=" << area;
+		cout << "\n";
+		cout << "volumen=" << volumen;
+	cout << "\n";
 	return 0;
 }
 int ejercicio15()
 {
 	cout << "Ejercicio #15";
+	float velocidad = 0;
+	float velocidad1 = 0;
+	cout << "\n";
+	cout << ("digite la velocidad en km/h:");
+	cin >>velocidad;
+	velocidad1 = velocidad / 3.6;
+	cout << "velocidad m/s:" << velocidad1;
 	cout << "\n";
 	return 0;
 }
 int ejercicio16()
 {
-	cout << "Ejercicio #16";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
 int ejercicio17()
 {
-	cout << "Ejercicio #17";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
 int ejercicio18()
 {
-	cout << "Ejercicio #18";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
 int ejercicio19()
+// falta 
 {
 	cout << "Ejercicio #19";
+
+	double numero1 = 0;
+	double numero2 = 0;
+	double numero3 = 0;
+	double numero4 = 0;
+	double numero5 = 0;
+	cout << "\n";
+	cout << "ingrese un numero:";
+	cin >> numero1;
+	cout << "\n";
+	cout << "ingrese un numero:";
+	cin >> numero2;
+	cout << "ingrese un numero:";
+	cin >> numero3;
+	cout << "ingrese un numero:";
+	cin >> numero4;
+	cout << "ingrese un numero:";
+	cin >> numero5;
+	
 	cout << "\n";
 	return 0;
 }
 int ejercicio20()
 {
 	cout << "Ejercicio #20";
+	int i;
+	int fact = 1;
+	int numero;
+	cout << "\n";
+	cout << "ingresa un numero: ";
+	cin >> numero;
+	if (numero < 0) fact = 0;
+	else if (numero == 0) fact = 1;
+	else {
+		for (i = 1; i <= numero; i++) {
+			fact = fact * i;
+		}
+	}
+	cout << "el factorial es : "<< fact;
 	cout << "\n";
 	return 0;
 }
@@ -313,23 +447,50 @@ int ejercicio21()
 {
 	cout << "Ejercicio #21";
 	cout << "\n";
+	int numero = 0;
+	cout << "ingresa un numero: ";
+	cin >> numero;
+	
+		switch (numero)
+		{
+		case 1: cout << "I"; break;
+		case 2: cout << "II"; break;
+		case 3: cout << "III"; break;
+		case 4: cout << "IV"; break;
+		case 5: cout << "V"; break;
+		case 6: cout << "VI"; break;
+		case 7: cout << "VII"; break;
+		case 8: cout << "VIII"; break;
+		case 9: cout << "IX"; break;
+		case 10: cout << "X"; break;
+		default: "digete un entero entre 1 y 10"; break;
+		
+		}
+	
 	return 0;
 }
 int ejercicio22()
 {
-	cout << "Ejercicio #22";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
 int ejercicio23()
 {
 	cout << "Ejercicio #23";
+	float centimetros = 0;
+	float pulgadas = 0;
+	cout << "\n";
+	cout << ("digite centimetros :");
+	cin >> centimetros;
+	pulgadas = centimetros / 2.54;
+	cout  << pulgadas << " pulgadas";
 	cout << "\n";
 	return 0;
 }
 int ejercicio24()
 {
-	cout << "Ejercicio #24";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
@@ -337,29 +498,114 @@ int ejercicio25()
 {
 	cout << "Ejercicio #25";
 	cout << "\n";
+	int numero = 0;
+	cout << "ingresa un numero: ";
+	cin >> numero;
+
+	switch (numero)
+	{
+	case 1: cout << "enero"; break;
+	case 2: cout << "febrero"; break;
+	case 3: cout << "marzo"; break;
+	case 4: cout << "abril"; break;
+	case 5: cout << "mayo"; break;
+	case 6: cout << "junio"; break;
+	case 7: cout << "julio"; break;
+	case 8: cout << "agosto"; break;
+	case 9: cout << "septiembre"; break;
+	case 10: cout << "octubre"; break;
+	case 11: cout << "noviembre"; break;
+	case 12: cout << "diciembre"; break;
+	default: "digete un entero entre 1 y 12"; break;
+
+	}
 	return 0;
 }
-int ejercicio26()
-{
+
+int ejercicio26(){
 	cout << "Ejercicio #26";
 	cout << "\n";
+	int selector, opc, mes, dia;
+		
+			cout << "\t\t\tSIGNO ZODIACAL" << endl;
+			cout << "(1)Enero  \t(2)Febrero  \t(3)Marzo  \t(4)Abril" << endl;
+			cout << "(5)Mayo  \t(6)Junio     \t(7)Julio  \t(8)Agosto" << endl;
+			cout << "(9)Septiembre  \t(10)Octubre  \t(11)Noviembre  \t(12)Diciembre" << endl << endl;
+			cout << "Ingrese la fecha de su cumplea" << char(164) << "o (dia y mes)" << endl;
+			cin >> dia >> mes;
+			switch (mes)
+			{
+			/*enero*/		case 1:if (dia < 21) cout << "Capricornio" << endl;
+								  else	  cout << "Acuario" << endl; break;
+
+			/*febrero*/		case 2:if (dia < 21) cout << "Acuario" << endl;
+								  else	  cout << "Piscis" << endl; break;
+
+			/*marzo*/		case 3:if (dia < 21) cout << "Piscis" << endl;
+								  else	  cout << "Aries" << endl; break;
+
+			/*abril*/		case 4:if (dia < 21) cout << "Aries" << endl;
+								  else	  cout << "Tauro" << endl; break;
+
+			/*mayo*/		case 5:if (dia < 22) cout << "Tauro" << endl;
+								  else	  cout << "Geminis" << endl; break;
+
+			/*junio*/		case 6:if (dia < 22) cout << "Geminis" << endl;
+								  else	  cout << "Cancer" << endl; break;
+
+			/*julio*/		case 7:if (dia < 23) cout << "Cancer" << endl;
+								  else	  cout << "Leo" << endl; break;
+
+			/*agosto*/		case 8:if (dia < 23) cout << "Leo" << endl;
+								  else	  cout << "Virgo" << endl; break;
+
+			/*septiembre*/	case 9:if (dia < 24) cout << "Virgo" << endl;
+								  else	  cout << "Libra" << endl; break;
+
+			/*octubre*/		case 10:if (dia < 25)cout << "Libra" << endl;
+								   else	  cout << "Escorpio" << endl; break;
+
+			/*noviembre*/	case 11:if (dia < 23)cout << "Escorpio" << endl;
+								   else	  cout << "Sagitario" << endl; break;
+
+			/*diciembre*/	case 12:if (dia < 22)cout << "Sagitario" << endl;
+								   else	  cout << "Capricornio" << endl; break;
+
+			default:cout << "el signo sodiacal es " << endl;
+			}
+			
 	return 0;
 }
+
 int ejercicio27()
 {
 	cout << "Ejercicio #27";
 	cout << "\n";
+	int numero = 0;
+	cout << "ingresa un numero: ";
+	cin >> numero;
+	cout << "total: " << numero;
 	return 0;
 }
 int ejercicio28()
 {
 	cout << "Ejercicio #28";
 	cout << "\n";
+	int numero = 0;
+	int totalsuma = 0;
+	cout << "ingresa un numero: ";
+	cin >> numero;
+
+	for (int i = 1; i <= numero; i++)
+	{
+		totalsuma = i + totalsuma;
+	}
+	cout << "total: " << totalsuma;
 	return 0;
 }
 int ejercicio29()
 {
-	cout << "Ejercicio #29";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
@@ -367,47 +613,79 @@ int ejercicio30()
 {
 	cout << "Ejercicio #30";
 	cout << "\n";
+	float PI = 3.141592;
+	float perimetro, radio;
+	cout << (" Introduzca radio: ");
+	cin >> radio;
+	cout << " el perimetro es:" << 2 * PI * radio;
+	cout << "\n";
 	return 0;
 }
 int ejercicio31()
 {
 	cout << "Ejercicio #31";
 	cout << "\n";
+	double radio;
+	double volumen;
+	float pi = 3.141592;
+	cout << "Introduce el radio de la esfera:";
+	cin >> radio;
+	volumen = pi * radio * radio * radio / 3;
+	cout << "El volumen de la esfera es:" << volumen << endl;
 	return 0;
 }
 int ejercicio32()
 {
 	cout << "Ejercicio #32";
 	cout << "\n";
+	double a, b, c;
+	cout << "ingrese un cateto:" << endl;
+	cin >> a;
+	cout << "ingrese el otro cateto:" << endl;
+	cin >> b;
+	c = sqrt((a * a + b * b));
+	cout << "la hipotenusa es:" << c<<endl;
 	return 0;
 }
 int ejercicio33()
 {
+	float fahrenheit;
 	cout << "Ejercicio #33";
 	cout << "\n";
+	cout << "ingrese grados fahrenheit:" << endl;
+	cin >> fahrenheit;
+	fahrenheit = (fahrenheit - 32) * 5 / 9;
+	cout << fahrenheit <<" grados celsius" << endl;
 	return 0;
 }
 int ejercicio34()
 {
 	cout << "Ejercicio #34";
 	cout << "\n";
+	float celsius;
+	cout << "Ejercicio #33";
+	cout << "\n";
+	cout << "ingrese grados celsius:" << endl;
+	cin >> celsius;
+	celsius = (celsius * 9 / 5) + 32;
+	cout << celsius << " grados fahrenheit" << endl;
 	return 0;
 }
 int ejercicio35()
 {
-	cout << "Ejercicio #35";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
 int ejercicio36()
 {
-	cout << "Ejercicio #36";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
 int ejercicio37()
 {
-	cout << "Ejercicio #37";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
@@ -415,35 +693,54 @@ int ejercicio38()
 {
 	cout << "Ejercicio #38";
 	cout << "\n";
+	int e1, e2, e3,promedio;
+	cout << "digite la edad:" << endl;
+	cin >> e1;
+	cout << "digite la edad:" << endl;
+	cin >> e2;
+	cout << "digite la edad:" << endl;
+	cin >> e3;
+	promedio = (e1 + e2 + e3) / 3;
+	cout << "el promedio de edad es:" << promedio<<endl;
 	return 0;
 }
 int ejercicio39()
 {
 	cout << "Ejercicio #39";
 	cout << "\n";
+	double numero = 0;
+	int i = 1;
+	do
+	{
+		cout << "\n Ingrese un numero : ";
+		cin >> numero;
+		if (numero >= 0) 
+			cout << numero;
+			i++;
+	} while (i <= 10);
 	return 0;
 }
 int ejercicio40()
 {
-	cout << "Ejercicio #40";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
 int ejercicio41()
 {
-	cout << "Ejercicio #41";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
 int ejercicio42()
 {
-	cout << "Ejercicio #42";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
 int ejercicio43()
 {
-	cout << "Ejercicio #43";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
@@ -451,41 +748,119 @@ int ejercicio44()
 {
 	cout << "Ejercicio #44";
 	cout << "\n";
+	float pesos = 0,dolares = 0;
+	float trm=3431.46;
+
+	cout << "digite valor en pesos:" << endl;
+	cin >> pesos;
+	dolares = trm * pesos;
+	cout << "el valor en dolares es:"<<dolares << endl;
+
+
 	return 0;
 }
 int ejercicio45()
 {
 	cout << "Ejercicio #45";
 	cout << "\n";
+	float pesos = 0, dolares = 0;
+	float trm = 3431.46;
+
+	cout << "digite valor en dolares:" << endl;
+	cin >> dolares;
+	pesos = trm * dolares;
+	cout << "el valor en pesos es:" << pesos << endl;
 	return 0;
 }
 int ejercicio46()
 {
 	cout << "Ejercicio #46";
 	cout << "\n";
+	float euros=0,dolares=0;
+	float trm = 1.10;
+
+	cout << "digite valor en euros:" << endl;
+	cin >> euros;
+	dolares = trm * euros;
+	cout << "el valor en dolares es:" << dolares << endl;
 	return 0;
 }
 int ejercicio47()
 {
 	cout << "Ejercicio #47";
 	cout << "\n";
+	float dolares = 0,euros=0;
+	float trm = 0.91;
+
+	cout << "digite valor en dolares:" << endl;
+	cin >> dolares;
+	euros = trm * dolares;
+	cout << "el valor en euros es:" << euros << endl;
 	return 0;
 }
 int ejercicio48()
 {
 	cout << "Ejercicio #48";
 	cout << "\n";
+	int numero = 0;
+
+	cout << "digite 1 para futbol 2 para tejo: ";
+	cout << "\n";
+	cin >> numero;
+
+	switch (numero)
+	{
+	case 1: 
+		cout << "para jugar futbol necesita los siguientes elementos";
+		cout << "\n";
+		cout << "uniforme";
+		cout << "\n";
+		cout << "balon";
+		cout << "\n";
+		cout << "guayos";
+		cout << "\n";
+		cout << "cancha";
+		cout << "\n";
+		cout << "silbato";
+		cout << "\n";
+		cout << "targetas";
+		cout << "\n";
+		cout << "var";
+		break;
+	case 2:
+		cout << "para jugar tejo necesita los siguientes elementos";
+		cout << "\n";
+		cout << "tejo";
+		cout << "\n";
+		cout << "mechas";
+		cout << "\n";
+		cout << "cancha";
+		cout << "\n";
+		cout << "bar";
+
+		break;
+	
+	default: "digete una opcion valida"; break;
+
+	}
 	return 0;
 }
 int ejercicio49()
 {
 	cout << "Ejercicio #49";
 	cout << "\n";
+	float libras = 0, kilos = 0;
+	float lb = 0.453592;
+
+	cout << "indique cantidad de libras:" << endl;
+	cin >> libras;
+	kilos = lb *libras;
+	cout << "el peso en kilos es:" << kilos << endl;
 	return 0;
 }
 int ejercicio50()
 {
-	cout << "Ejercicio #50";
+	cout << "Ejercicio no resouelto";
 	cout << "\n";
 	return 0;
 }
@@ -497,7 +872,7 @@ int main() {
 		if (!cin) {
 			cout << "Numero no valido - Saliendo de la aplicación";
 			cin.clear();
-			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		//	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 		else {
 			switch (opcion)
@@ -657,11 +1032,10 @@ int main() {
 			default: cout << "Opción incorrecta - Digite un numero entre 1 y 50";
 			}
 		}
-		} while (opcion != 0);	
+	} while (opcion != 0);
 	//cout << "\n";	
 	//cin.ignore();
-	//cin.get();	
-	return 0;
+	//cin.get();
+		return 0;
 
-}
-
+}	
